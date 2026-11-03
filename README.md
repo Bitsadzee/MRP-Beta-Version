@@ -1,19 +1,19 @@
-# MRP Beta Version
+# MRP Beta Version 0.1.1
 
-## თამაში ბრაუზერში
+## Windows installer
 
-[MRP-ის თამაში პირდაპირ ბრაუზერში — ჩამოტვირთვა არ არის საჭირო](https://bitsadzee.github.io/MRP-Beta-Version/)
+[Download the MRP Beta Version 0.1.1 installer](https://github.com/Bitsadzee/MRP-Beta-Version/releases/tag/v0.1.1-beta.0).
 
-გახსენი ბმული, შექმენი თამაშის ანგარიში და ითამაშე. პროგრესი ინახება იმავე მოწყობილობასა და ბრაუზერში; სხვა მოწყობილობაზე ავტომატურად არ გადადის.
+Install it over the existing MRP app on the same computer. The game keeps its existing local accounts and progress. Do not uninstall the older version first.
 
-## Windows ვერსია
+## Optional browser version
 
-თუ Windows-ის ცალკე აპი გირჩევნია, გადადი [Releases გვერდზე](https://github.com/Bitsadzee/MRP-Beta-Version/releases) და ჩამოტვირთე MRP Beta installer.
+[Play MRP in a browser](https://bitsadzee.github.io/MRP-Beta-Version/). Browser progress stays in that browser and does not sync with the Windows app.
 
-## შეცდომის შეტყობინება
+## Report a beta issue
 
-შეცდომის მოსახსენებლად გახსენი [Issues](https://github.com/Bitsadzee/MRP-Beta-Version/issues) და დაწერე რა დააჭირე, რას ელოდი და რა მოხდა. პაროლები ან პირადი მონაცემები არ გამოაქვეყნო.
+[Open an issue](https://github.com/Bitsadzee/MRP-Beta-Version/issues) with the steps you took and what happened. Do not post passwords or personal information.
 
-## წყარო კოდი
+## Source code
 
-წყაროს არქივი: [MRP-Beta-Source-0.1.0-beta.0.zip](https://github.com/Bitsadzee/MRP-Beta-Version/raw/refs/heads/main/MRP-Beta-Source-0.1.0-beta.0.zip).
+[Download the 0.1.1 source archive](https://github.com/Bitsadzee/MRP-Beta-Version/raw/refs/heads/main/MRP-Beta-Source-0.1.1-beta.0.zip).

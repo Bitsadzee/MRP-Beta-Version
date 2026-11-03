@@ -28,7 +28,7 @@ jobs:
         run: |
           python - <<'PY'
           import zipfile
-          archive = zipfile.ZipFile("MRP-Beta-Source-0.1.0-beta.0.zip")
+          archive = zipfile.ZipFile("MRP-Beta-Source-0.1.1-beta.0.zip")
           with zipfile.ZipFile("source-fixed.zip", "w", zipfile.ZIP_DEFLATED) as output:
               for entry in archive.infolist():
                   if not entry.is_dir():
