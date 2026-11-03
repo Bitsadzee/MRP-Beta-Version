@@ -1,0 +1,51 @@
+name: Build and publish MRP 0.1.1 beta
+
+on:
+  push:
+    branches:
+      - release/0.1.1-beta.0
+
+permissions:
+  contents: write
+
+jobs:
+  windows-beta:
+    runs-on: windows-latest
+    steps:
+      - name: Check out beta source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Extract game source
+        shell: pwsh
+        run: Expand-Archive -LiteralPath "MRP-Beta-Source-0.1.1-beta.0.zip" -DestinationPath "app" -Force
+
+      - name: Install dependencies
+        working-directory: app
+        run: npm ci
+
+      - name: Build Windows installer
+        working-directory: app
+        run: npm run desktop:dist
+
+      - name: Build portable Windows ZIP
+        working-directory: app
+        shell: pwsh
+        run: Compress-Archive -Path "release\win-unpacked\*" -DestinationPath "release\MRP-Beta-Version-0.1.1-beta.0-Windows-Portable.zip" -CompressionLevel Optimal
+
+      - name: Publish beta release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.1.1-beta.0
+          name: MRP Beta Version 0.1.1 Beta
+          prerelease: true
+          make_latest: true
+          generate_release_notes: true
+          files: |
+            app/release/MRP Beta Version Setup 0.1.1-beta.0.exe
+            app/release/MRP-Beta-Version-0.1.1-beta.0-Windows-Portable.zip
+            MRP-Beta-Source-0.1.1-beta.0.zip
