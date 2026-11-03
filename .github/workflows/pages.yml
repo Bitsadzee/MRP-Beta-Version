@@ -24,8 +24,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Extract game source
-        run: unzip -q MRP-Beta-Source-0.1.0-beta.0.zip -d source
+      - name: Normalize and extract game source
+        run: |
+          python - <<'PY'
+          import zipfile
+          archive = zipfile.ZipFile("MRP-Beta-Source-0.1.0-beta.0.zip")
+          with zipfile.ZipFile("source-fixed.zip", "w", zipfile.ZIP_DEFLATED) as output:
+              for entry in archive.infolist():
+                  if not entry.is_dir():
+                      output.writestr(entry.filename.replace("\\", "/"), archive.read(entry.filename))
+          PY
+          mkdir source
+          unzip -q source-fixed.zip -d source
       - name: Install dependencies
         run: npm ci
         working-directory: source
